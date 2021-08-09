@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,6 +16,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews.RemoteView;
+
+import com.ortiz.touchview.TouchImageView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -321,7 +323,7 @@ public class CarouselView extends FrameLayout {
             //Either let user set image to ImageView
             if (mImageListener != null) {
 
-                ImageView imageView = new ImageView(mContext);
+                TouchImageView imageView = new TouchImageView(mContext);
                 imageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));  //setting image position
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
