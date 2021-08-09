@@ -57,7 +57,7 @@ public class CarouselView extends FrameLayout {
     private boolean autoPlay;
     private boolean disableAutoPlayOnUserInteraction;
     private boolean animateOnBoundary = true;
-
+    private boolean zoomEnabled = false;
     private int previousState;
 
     private ViewPager.PageTransformer pageTransformer;
@@ -107,6 +107,7 @@ public class CarouselView extends FrameLayout {
                 setAnimateOnBoundary(a.getBoolean(R.styleable.CarouselView_animateOnBoundary, true));
                 setPageTransformer(a.getInt(R.styleable.CarouselView_pageTransformer, CarouselViewPagerTransformer.DEFAULT));
 
+                zoomEnabled = a.getBoolean(R.styleable.CarouselView_zoomEnabled, false);
                 indicatorVisibility = a.getInt(R.styleable.CarouselView_indicatorVisibility, CarouselView.DEFAULT_INDICATOR_VISIBILITY);
 
                 setIndicatorVisibility(indicatorVisibility);
@@ -323,7 +324,7 @@ public class CarouselView extends FrameLayout {
             //Either let user set image to ImageView
             if (mImageListener != null) {
 
-                TouchImageView imageView = new TouchImageView(mContext);
+                ImageView imageView = zoomEnabled ? new TouchImageView(mContext) : new ImageView(mContext);
                 imageView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));  //setting image position
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 

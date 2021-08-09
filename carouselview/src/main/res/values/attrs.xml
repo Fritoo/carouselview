@@ -56,6 +56,7 @@
     <attr name="indicatorMarginHorizontal" format="dimension" />
     <attr name="indicatorMarginVertical" format="dimension" />
     <attr name="animateOnBoundary" format="boolean" />
+    <attr name="zoomEnabled" format="boolean"/>
 
     <!-- Controls the initial visibility of the view.  -->
     <attr name="indicatorVisibility">
@@ -123,6 +124,8 @@
         <attr name="animateOnBoundary" />
         <!-- Indicator Visibility -->
         <attr name="indicatorVisibility" />
+        <!-- Whether or not zoom gestures are enabled. Recommend set to false if you would like to use ImageClickListener-->
+        <attr name="zoomEnabled" />
 
 
     </declare-styleable>
